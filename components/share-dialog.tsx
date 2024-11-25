@@ -6,9 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { Facebook, Link2, X } from "lucide-react";
-import Image from "next/image";
 
 interface ShareDialogProps {
   isOpen: boolean;
@@ -27,13 +25,6 @@ export function ShareDialog({ isOpen, onClose }: ShareDialogProps) {
     }
   };
 
-  const handleWhatsAppShare = () => {
-    const url = `whatsapp://send?text=${encodeURIComponent(
-      `${shareTitle} ${shareUrl}`
-    )}`;
-    window.open(url, "_blank");
-  };
-
   const handleFacebookShare = () => {
     const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
       shareUrl
@@ -45,13 +36,6 @@ export function ShareDialog({ isOpen, onClose }: ShareDialogProps) {
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
       shareTitle
     )}&url=${encodeURIComponent(shareUrl)}`;
-    window.open(url, "_blank");
-  };
-
-  const handleLineShare = () => {
-    const url = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(
-      shareUrl
-    )}`;
     window.open(url, "_blank");
   };
 
